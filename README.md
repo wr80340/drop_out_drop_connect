@@ -1,35 +1,8 @@
-# Drop out and Drop connect comparison on mnist dataset
+# Implement Drop connect and compare with Drop out on mnist dataset
 drop connect paper : http://proceedings.mlr.press/v28/wan13.pdf
-# introduction
-We compare drop out and drop connect on mnist dataset
-# model structure
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-input_1 (InputLayer)         [(None, 28, 28, 1)]       0         
-_________________________________________________________________
-conv2d (Conv2D)              (None, 26, 26, 32)        320       
-_________________________________________________________________
-max_pooling2d (MaxPooling2D) (None, 13, 13, 32)        0         
-_________________________________________________________________
-conv2d_1 (Conv2D)            (None, 11, 11, 64)        18496     
-_________________________________________________________________
-max_pooling2d_1 (MaxPooling2 (None, 5, 5, 64)          0         
-_________________________________________________________________
-conv2d_2 (Conv2D)            (None, 3, 3, 64)          36928     
-_________________________________________________________________
-flatten (Flatten)            (None, 576)               0         
-_________________________________________________________________
-dense (Dense)                (None, 128)               73856     
-_________________________________________________________________
-dropout (Dropout)            (None, 128)               0         
-_________________________________________________________________
-dense_1 (Dense)              (None, 10)                1290      
-=================================================================
-Total params: 130,890
-Trainable params: 130,890
-Non-trainable params: 0
-_________________________________________________________________
-
-
-<font color="green"> Some green text </font>
+# Compare result
+both train 10 epoch
+method | train loss | train accuracy | val loss | val accuracy | test loss | test accuracy
+---|---|---|---|---|---|---|---
+drop out | 0.0164 | 0.9949 | 0.0481| 0.9906  | 0.9904
+drop connect | 0.0267 | 0.9912 | 0.0754 | 0.9806 | 0.9869
